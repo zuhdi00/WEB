@@ -1,45 +1,55 @@
-/*
-SQLyog Ultimate v12.5.1 (64 bit)
-MySQL - 10.1.19-MariaDB : Database - dbpakar
-*********************************************************************
-*/
+-- phpMyAdmin SQL Dump
+-- version 4.0.9
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 09, 2014 at 09:28 PM
+-- Server version: 5.6.14
+-- PHP Version: 5.5.6
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
-/*!40101 SET SQL_MODE=''*/;
+--
+-- Database: `dbpakar`
+--
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`dbpakar` /*!40100 DEFAULT CHARACTER SET latin1 */;
+-- --------------------------------------------------------
 
-USE `dbpakar`;
+--
+-- Table structure for table `admin`
+--
 
-/*Table structure for table `admin` */
-
-DROP TABLE IF EXISTS `admin`;
-
-CREATE TABLE `admin` (
+CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
   `nmuser` varchar(25) DEFAULT NULL,
   `nmlogin` varbinary(25) DEFAULT NULL,
   `pslogin` varchar(55) DEFAULT NULL,
   `level` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
-/*Data for the table `admin` */
+--
+-- Dumping data for table `admin`
+--
 
-insert  into `admin`(`id`,`nmuser`,`nmlogin`,`pslogin`,`level`) values 
-(3,'Muarti Novi','user','6ad14ba9986e3615423dfca256d04e3f',NULL),
-(2,'Administrator','admin','0192023a7bbd73250516f069df18b500',1);
+INSERT INTO `admin` (`id`, `nmuser`, `nmlogin`, `pslogin`, `level`) VALUES
+(3, 'Fery Purnama', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', NULL),
+(2, 'Administrator', 'admin', '21232f297a57a5a743894a0e4a801fc3', 1);
 
-/*Table structure for table `analisa_hasil` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `analisa_hasil`;
+--
+-- Table structure for table `analisa_hasil`
+--
 
-CREATE TABLE `analisa_hasil` (
+CREATE TABLE IF NOT EXISTS `analisa_hasil` (
   `id` int(4) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `nama` varchar(60) NOT NULL,
   `kelamin` enum('P','W') NOT NULL,
@@ -49,41 +59,24 @@ CREATE TABLE `analisa_hasil` (
   `noip` varchar(60) NOT NULL,
   `tanggal` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=140 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=102 ;
 
-/*Data for the table `analisa_hasil` */
+--
+-- Dumping data for table `analisa_hasil`
+--
 
-insert  into `analisa_hasil`(`id`,`nama`,`kelamin`,`alamat`,`pekerjaan`,`kd_solusi`,`noip`,`tanggal`) values 
-(0116,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-02 10:40:14'),
-(0117,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-02 10:40:50'),
-(0118,'novi','W','tawangsari','pegawai bank','P001','::1','2021-01-02 12:11:17'),
-(0119,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-02 12:52:22'),
-(0120,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-09 00:40:09'),
-(0121,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-09 15:03:12'),
-(0122,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-09 15:08:16'),
-(0123,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-09 15:21:06'),
-(0124,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-09 15:31:18'),
-(0125,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-09 15:44:31'),
-(0126,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-09 19:33:43'),
-(0127,'akbar','P','kepo','kepo','P003','::1','2021-01-09 21:15:57'),
-(0128,'akbar','P','kepo','kepo','P005','::1','2021-01-09 22:44:52'),
-(0129,'akbar','P','kepo','kepo','P002','::1','2021-01-09 22:45:56'),
-(0130,'akbar','P','kepo','kepo','P001','::1','2021-01-09 22:59:28'),
-(0131,'akbar','P','kepo','kepo','P013','::1','2021-01-10 15:58:21'),
-(0132,'akbar','P','kepo','kepo','P012','::1','2021-01-10 15:59:54'),
-(0133,'novi','W','tawangsari','pegawai bank','P003','::1','2021-01-10 16:16:41'),
-(0134,'novi','W','tawangsari','mama cantik','P006','::1','2021-01-10 16:17:06'),
-(0135,'novi','W','tawangsari','mama cantik','P004','::1','2021-01-10 16:19:58'),
-(0136,'novi','W','tawangsari','mama cantik','P004','::1','2021-01-10 16:19:58'),
-(0137,'akbar','P','kepo','kepo','P003','::1','2021-01-12 23:13:40'),
-(0138,'akbar','P','kepo','kepo','P003','::1','2021-01-12 23:13:40'),
-(0139,'akbar','P','kepo','kepo','P002','::1','2021-01-13 14:15:43');
+INSERT INTO `analisa_hasil` (`id`, `nama`, `kelamin`, `alamat`, `pekerjaan`, `kd_solusi`, `noip`, `tanggal`) VALUES
+(0101, 'aaaa', 'P', 'Jambi', 'Swasta', 'P008', '::1', '2014-12-10 03:26:18'),
+(0100, 'Mira', 'W', 'Jalan Samudra Kota Jambi', 'Swasta', 'P008', '::1', '2014-06-10 16:16:34'),
+(0099, 'Bibi', 'P', 'Jambi', 'Swasta', 'P015', '::1', '2014-06-10 16:01:21');
 
-/*Table structure for table `artikel` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `artikel`;
+--
+-- Table structure for table `artikel`
+--
 
-CREATE TABLE `artikel` (
+CREATE TABLE IF NOT EXISTS `artikel` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
   `idadmin` varchar(55) DEFAULT NULL,
   `tgl` varchar(55) DEFAULT NULL,
@@ -95,229 +88,366 @@ CREATE TABLE `artikel` (
   `deskripsi` text,
   PRIMARY KEY (`id`),
   KEY `FK_news` (`idadmin`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC AUTO_INCREMENT=8 ;
 
-/*Data for the table `artikel` */
+--
+-- Dumping data for table `artikel`
+--
 
-insert  into `artikel`(`id`,`idadmin`,`tgl`,`judul`,`isi`,`foto`,`ket`,`keyword`,`deskripsi`) values 
-(1,'','2021-01-01','Mandiri traveloka','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Traveloka</strong> - Kini transaksi dimana pun selalu #DapatRewardLebih. Berikut adalah fitur-fitur dari mandiri traveloka:<br /><br /><strong>1. Bonus</strong><br /><br />-<br /><br /><strong>2. Manfaat Spesial</strong><br /><br /> Dapatkan 2x Traveloka Poin setiap pembelian Flight dan Hotel, diskon 10% setiap hari di Traveloka Xperience & Asuransi Mobil, dapatkan 1 Traveloka Poin setiap transaksi kelipatan Rp8.000 di semua merchant baik online maupun offline dan pertanggungan asuransi bebas premi dengan maksimal pertanggungan sampai dengan Rp 1 Miliar.<br /><strong><br />3. Fitur Lain</strong><br /><br /> Berlaku untuk nilai transaksi di bawah Rp 1 juta, sedangkan pembelanjaan dengan nilai transaksi lebih besar dari Rp 1 juta tetap diperlukan otorisasi melalui PIN atau tanda tangan, gratis 1 tahun tanpa syarat apapun.<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Penghasilan minimal Rp. 5 juta.</p>','mandiritraveloka.png','Y','mandiri, traveloka','Mandiri Traveloka'),
-(2,'','2021-01-01','Mandiri Gold','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Gold</strong> - Jangan takut gak bisa exist, semua bisa dicicil. Gunakan Mandiri Gold di setiap transaksi. Berikut adalah fitur-fitur dari mandiri gold:<br /><br /><strong>1. Bonus</strong><br /><br />-<br /><br /><strong>2. Manfaat Spesial</strong><br /><br /> Bayar semua tagihan rutin dalam 1 kali pembayaran, cairkan limit Mandiri Gold untuk berbagai keinginan kamu yang tidak terbatas, Beli apapun, dimanapun, gak perlu pusing bayar tagihan, dan ubah transaksimu menjadi cicilan.<br /><strong><br />3. Fitur Lain</strong><br /><br /> Dapatkan informasi tagihan yang lebih praktis dan mudah melalui e-mail.<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Penghasilan minimal Rp. 3 juta.</p>','mandirigold.png','Y','mandiri, gold','Mandiri Gold'),
-(3,'','2021-01-01','Everyday Card','<p style=\"text-align: justify;\">&nbsp;<strong>Everyday Card</strong> - Kartu pertama anda, pilih desain kartu yang sesuai dengan kepribadian anda. Berikut adalah fitur-fitur dari everyday card:<br /><br /><strong>1. Bonus</strong><br /><br />-<br /><br /><strong>2. Manfaat Spesial</strong><br /><br/> nikmati kenyamanan dalam melakukan transaksi online dengan adanya fitur 3D secure yang memungkinkan Anda menerima PIN transaksi melalui SMS di website yang berlogo verified by VISA / Verified by MasterCard, ubah transaksi Anda menjadi cicilan tetap dengan bunga ringan hingga 1% per bulannya, dapatkan dana tunai dan kemudahan pembayaran melalui cicilan tetap hingga 12 bulan dengan bunga ringan.<br /><strong><br />3. Fitur Lain</strong><br /><br />-<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Penghasilan minimal Rp. 3 juta.</p>','everydaycard.png','Y','everyday, card','Everyday Card'),
-(4,'','2021-01-01','Mandiri SKYZ','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri SKYZ</strong> - Mau liburan gak pake drama?\r\nGunakan Mandiri SKYZ, makin banyak surprize-nya, makin seru traveling-nya. Berikut adalah fitur-fitur dari mandiri skyz:<br /><br /><strong>1. Bonus</strong><br /><br />Cashback senilai Rp. 200 ribu.<br /><br /><strong>2. Manfaat Spesial</strong><br /><br />2x fiestapoin, kemudahan pembayaran tagihan melalui ATM semua bank, Mandiri Online, Cabang, SMS Banking, Direct debit, dan menu transfer bank lain, dan dapat mengubah transaksi menjadi cicilan.<br /><strong><br />3. Fitur Lain</strong><br /><br /> Belanja tak perlu khawatir hilang atau rusak dengan perlindungan hingga Rp 50 juta dengan pembelian menggunakan Mandiri SKYZ baik diluar maupun di dalam negeri, perlindungan bebas premi hingga Rp 1 Milyar setiap pembelian tiket perjalanan apapun.<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Usia minimal 21 tahun, Penghasilan minimal Rp. 5 juta.</p>\r\n','mandiriskyz.png','Y','mandiri, skyz','Mandiri SKYZ'),
-(5,'','2021-01-01','Mandiri Co Brand Hypermart','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Co Brand Hypermart</strong> - Lebih hemat dalam belanja groceries serta kebutuhan elektronik dan produk rumah tangga. Gunakan Mandiri Hypermart untuk setiap kebutuhan rumah tangga sehari-hari. Kartu ini telah dilengkapi teknologi Contactless. Nikmati berbagai benefitnya di merchant favoritmu. Berikut adalah fitur-fitur dari mandiri Co Brand Hypermart:<br/><br /><br /><strong>1. Bonus</strong><br /><br />Cashback senilai Rp. 200 ribu.<br /><br /><strong>2. Manfaat Spesial</strong><br /><br /> Cicilan 0% sampai 3 bulan untuk seluruh produk dan 12 bulan khusus produk elektronik, program GWP Bonus produk setiap hari untuk Visa Contacles dengan cara Tap.<br /><strong><br />3. Fitur Lain</strong><br /><br />-<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Usia minimal 21 tahun, Penghasilan minimal Rp. 5 juta.</p>','mandiricobrandhypermart.png','Y',NULL,'Mandiri Co Brand Hypermart'),
-(6,'','2021-01-01','Mandiri Co Brand Pertamina','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Co Brand Pertamina</strong> - Kartu kredit yang dipersembahkan khusus untuk nasabah yang memiliki gaya hidup & peduli dengan kenyamanan berkendaraan menggunakan mobil serta kebutuhan terkait automotives. Berikut adalah fitur-fitur dari mandiri co brand pertamina:<br/><br /><br/><br /><strong>1. Bonus</strong><br /><br /> Cashback senilai Rp200 ribu setelah bertransaksi pertama kali.<br /><br /><strong>2. Manfaat Spesial</strong><br /><br />2x fiestapoin Transaksi di SPBU Pertamina, no Surcharge di SPBU, dan pemegang kartu berhak atas perlindungan asuransi maksimal sebesar Rp 1 miliar dan mendapatkan fasilitas derek dan asistensi darurat kendaraan 24 jam.<br /><strong><br />3. Fitur Lain</strong><br /><br /> Mendapatkan fasilitas lounge bandara jika penerbangan Anda ditunda, bantuan 24 jam untuk keperluan darurat. Hubungi Mastercard Service Representative Global bebas pulsa di 001-803-1-887-0623, komplemen satu botol wine untuk makan malam, dan memberikan pengalaman tidak ternilai di berbagai aspek: olahraga, hiburan, music, travel, seni & budaya, kuliner, filantropi, dan shopping.<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Usia minimal 21 tahun, Penghasilan minimal Rp. 5 juta</p>','mandiricobrandpertamina.png','Y','mandiri, cobrand, pertamina','Mandiri Co Brand Pertamina'),
-(7,'','2021-01-01','Mandiri Golf Signature','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Golf Signature</strong> - Kartu khusus bagi penggemar golf, gabungkan kemudahan hobi golf Anda dengan benefit travelling serta shopping. Berikut adalah fitur-fitur dari mandiri golf signature:<br /><br /><strong>1. Bonus</strong><br /><br />-<br /><br /><strong>2. Manfaat Spesial</strong><br /><br /> Diskon Lapangan & Merchant Golf hingga 50%, 3x fiestapoin, Mandiri Golf Tournament Series.<br /><strong><br />3. Fitur Lain</strong><br /><br /> Gratis menikmati fasilitas Airport Lounge di berbagai bandara di Indonesia, layanan emergency medical evacuation yang sewaktu-waktu dibutuhkan di luar negeri dengan menghubungi Mandiri Visa Signature Call di 6221-5299-7765, mendapatkan akses ke lapangan golf terbaik dunia dengan layanan Visa Concierge melalui www.visasignatureconcierge.com atau telepon ke toll free number 001 803 441 242, akses pemesanan fasilitas private jet dengan menghubungi Mandiri Travel Center di 6221-526 8480 (hanya bisa dihubungi pada saat jam kerja, dan pemesanan dilakukan 1 minggu sebelum keberangkatan), pertanggungan asuransi bebas premi dengan maksimal pertanggungan sampai dengan Rp. 5 Miliar. Untuk syarat dan ketentuan lebih lengkap dan layanan telepon khusus untuk pemegang kartu Mandiri Visa Signature di 6221-5299-7765 yang dapat dihubungi kapanpun 24 jam / 7 hari seminggu, termasuk hari libur.<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Usia minimal 21 tahun, Penghasilan minimal Rp. 20 juta.</p>','mandirigolfsignature.png','Y','mandiri, golf, signature','Mandiri Golf Signature'),
-(8,'','2021-01-01','Mandiri Golf Gold','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Golf Gold</strong> - Satu-satunya kartu yang memberikan kesempatan untuk membuktikan performa Anda bermain golf di ajang mandiri golf tournament series. Berikut adalah fitur-fitur dari mandiri golf gold:<br /><br /><strong>1. Bonus</strong><br /><br />-<br /><br /><strong>2. Manfaat Spesial</strong><br /><br /> Diskon Lapangan & Merchant Golf hingga 50%, Mandiri Golf Tournament Series.<br /><strong><br />3. Fitur Lain</strong><br /><br /> Program Golf Travelling Special price dengan fasilitas cicilan dengan atau tanpa bunga.<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Usia minimal 21 tahun, Penghasilan minimal Rp. 5 juta.</p>','mandirigolfgold.png','Y','mandiri, golf, gold','Mandiri Golf Gold'),
-(9,'','2021-01-01','Mandiri Golf Platinum','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Golf Platinum</strong> - Satu-satunya kartu yang memberikan kesempatan untuk membuktikan performa Anda bermain golf di ajang mandiri golf tournament series. Berikut adalah fitur-fitur dari mandiri golf platinum:<br /><br /><strong>1. Bonus</strong><br /><br />-<br /><br /><strong>2. Manfaat Spesial</strong><br /><br /> Diskon Lapangan & Merchant Golf hingga 50%, 2x fiestapoin, Mandiri Golf Tournament Series. <br /><strong><br />3. Fitur Lain</strong><br /><br /> Program Golf Travelling Special price dengan fasilitas cicilan dengan atau tanpa bunga, perlindungan barang yang dibeli baik di dalam maupun di luar negeri, pemegang kartu akan mendapat asuransi perjalanan bebas premi dengan nilai perlindungan hingga Rp5 Miliar untuk setiap pembelian tiket perjalanan menggunakan Mandiri Golf Platinum, pemegang kartu untuk melindungi dari keterlambatan pesawat, ketidaknyamanan missed connection ataupun kehilangan bagasi,dan layanan international concierge dari Visa yang dapat diakses melalui www.visasignatureconcierge.com atau melalui telepon ke toll free 001 803 441 568 (bahasa Inggris) dan 001 803 441 242 (bahasa melayu).<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Usia minimal 21 tahun, Penghasilan minimal Rp. 10 juta.</p>','mandirigolfplatinum.png','Y','mandiri, golf, platinum','Mandiri Golf Platinum'),
-(10,'','2021-01-01','Mandiri Platinum','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Golf Gold</strong> - Berbagi momen bersama orang tersayang menjadi lebih mudah. Gunakan Mandiri Platinum untuk semua kebutuhan Anda dan keluarga. Kartu ini telah dilengkapi teknologi Contactless. Nikmati berbagai benefitnya di merchant favoritmu. Berikut adalah fitur-fitur dari mandiri platinum:<br/><br /><br /><strong><br/>1. Bonus</strong><br /><br />Cashback senilai Rp. 300 ribu.<br /><br /><strong>2. Manfaat Spesial</strong><br /><br/> 2x fiestapoin, cicilan ringan dan bayar tagihan Mandiri Kartu Kredit melalui ATM semua bank, Mandiri Online, Cabang, SMS Banking, Direct debit, dan menu transfer bank lain. <br /><strong><br />3. Fitur Lain</strong><br /><br /> Kini Anda dapat membayar semua tagihan rutin dalam 1 kali pembayaran. Daftarkan tagihan rutin Anda seperti PLN, Telkom, Pascabayar Seluler, dan TV kabel, belanja tak perlu khawatir hilang atau rusak dengan perlindungan hingga Rp 100 juta (per kejadian) dan Rp 60 juta (per item) dengan pembelian menggunakan Mandiri Platinum baik di luar maupun di dalam negeri, dan perlindungan bebas premi hingga Rp 5 milyar setiap pembelian tiket perjalanan apapun dengan Mandiri Platinum.<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Penghasilan minimal Rp. 10 juta.</p>','mandiriplatinum.png','Y','mandiri, platinum','Mandiri Platinum'),
-(11,'','2021-01-01','Mandiri Signature','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Signature</strong> - Selalu setia mendukung kebutuhan lifestyle Anda dan keluarga. Gunakan Mandiri Signature untuk setiap kebutuhan traveling dan shopping Anda. Berikut adalah fitur-fitur dari mandiri signature:<br /><br /><strong>1. Bonus</strong><br /><br />Cashback senilai Rp. 300 ribu.<br /><br /><strong>2. Manfaat Spesial</strong><br /><br />3x fiestapoin, mendapat kenyamanan saat menunggu penerbangan dengan bebas akses Lounge & Airport Merchant, terbang gratis lebih cepat.<br /><strong><br />3. Fitur Lain</strong><br /><br />Layanan emergency medical evacuation yang sewaktu-waktu dibutuhkan di luar negeri dengan menghubungi Mandiri Visa Signature Call di 6221-5299-7765, mendapatkan kartu keanggotaan Priority Pass yang bisa mengakses Priority Pass lounge di lebih dari 100 negara dengan menghubungi Mandiri Visa Signature Call Center di 6221-5299-7765 atau Mandiri Call 14000.<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />Usia minimal 21 tahun, Penghasilan minimal Rp. 20 juta.</p>','mandirisignature.png','Y','mandiri, signature','Mandiri Signature'),
-(12,'','2021-01-01','Mandiri Precious','<p style=\"text-align: justify;\">&nbsp;<strong>Mandiri Precious</strong> - Ikutin trend fashion, travel dan kuliner hits biar makin kekinian. Gunakan Mandiri Precious untuk kebutuhan traveling dan transaksi online. Berikut adalah fitur-fitur dari mandiri precious:<br /><br /><strong>1. Bonus</strong><br /><br />Cashback senilai Rp. 750 ribu.<br /><br /><strong>2. Manfaat Spesial</strong><br /><br />3x fiestapoin untuk transaksi diluar negeri, mendapat kenyaman saat menunggu penerbangan dengan bebas akses ke Airport Lounge & Merchant.<br /><strong><br />3. Fitur Lain</strong><br /><br /> Perlindungan bebas premi hingga Rp 1 Milyar setiap pembelian tiket perjalanan apapun dengan Mandiri Precious.<br /><br /><strong>4. Biaya dan Bunga</strong><br /><br />belum tau apa.<br /><br /><strong>5. Syarat Pengajuan</strong><br /><br />-</p>','mandiriprecious.gif','Y','mandiri, precious','Mandiri Precious');
+INSERT INTO `artikel` (`id`, `idadmin`, `tgl`, `judul`, `isi`, `foto`, `ket`, `keyword`, `deskripsi`) VALUES
+(5, '', '2014-05-15', 'Menggosok Gigi Membuat Badan Bugar', '<p style="text-align: justify;"><strong>Vemale.com</strong>&nbsp;- Bunda, apakah Anda dan keluarga selalu menggosok gigi? Perlu Anda ketahui lho, Bunda. Menggosok itu penting, selain untuk menjaga gigi dan muut tetap sehat, juga membuat badan bugar.&nbsp;Bunda, jika Anda dan keluarga tidak merawat gigi dengan baik, dampaknya tidak hanya pada kerusakan gigi saja lho. Tetapi juga mempengaruhi kesehatan badan dan kebugaran tubuh Anda.&nbsp;Tidak menggosok gigi juga mengurangi sejumlah fungsi organ dalam tubuh dan akan menyebabkan penyakit seperti diabetes sampai jantung koroner.&nbsp;Hal ini tentu saja sangat mempengaruhi kualitas kesehatan Anda. Bagaimana tidak, seperti yang dijelaskan oleh fitbodynow.com bahwa saat Anda tidak menggosok gigi Anda, plak akan mudah terbentuk disela-sela gigi. Jika sudah lama, ini akan menjadi karang gigi dan membutuhkan tindak lanjut.</p>\r\n<p style="text-align: justify;">Bunda, disarankan untuk menggosok gigi minimal dua kali sehari yaitu setelah sarapan pagi dan sebelum tidur malam. Aktifitas ini akan sangat bermanfaat jika sudah menjadi kebiasaan Anda.</p>\r\n<p style="text-align: justify;">Memang membuat suatu kebiasaan itu tidak lah muda. Tapi, Anda cukup membutuhkan 21 hari untuk membiasakan aktifitas ini.</p>\r\n<p style="text-align: justify;">Bunda, perlu Anda ketahui pula bahwa Anda akan terhindar dari penyakit yang akan menyerang mulut Anda dan tubuh Anda. Dan tentunya, Anda akan merasakan tubuh yang sangat bugar dan sehat. Karena, pada dasarnya menggosok gigi sangat bermanfaat untuk kesehatan dan kebugaran Anda.</p>', 'menggosok-gigi-membuat-badan-bugar.jpg', 'Y', 'kesehatan gigi', 'menggosok gigi'),
+(6, '', '2014-05-15', 'Inilah Tips Merawat Gigi Bagi Pengguna Behel', '<p style="text-align: justify;"><strong>Vemale.com</strong>&nbsp;- Gigi yang rapi adalah salah satu dari bagian keindahan yang Anda miliki. Tidak heran jika banyak dari Anda yang rela mengeluarkan banyak yang untuk mendapatkan gigi rapi dengan cara menggunakan behel. Akan tetapi, saat menggunakan behel atau kawat gigi, Anda justru membutuhkan perawatan ekstra. Jika tidak, gigi Anda akan menjadi sarang pertumbuhan bakteri akibat sisa makanan serta plak yang menodai gigi dan tentunya dapat merusak warna gigi Anda.</p>\r\n<p style="text-align: justify;">Menurut lansiran dari&nbsp;<a href="http://meetdoctor.com/" target="_top">MeetDoctor.com</a>, salah satu cara merawat gigi adalah dengan menggunakan pasta gigi yang mengandung fluoride dan selalu menggosok gigi Anda setelah makan. Setelah menggosokpun Anda disarankan untuk melakukan pengecekan guna melihat apakah masih ada sisa makanan yang menyangkut di sela-sela gigi. Sementara untuk sikat gigi, sebaiknya Anda memilih sikat yang berbulu lembut. Anda bisa menggosok gigi Anda dengan gerakan dari atas ke bawah dan sebaliknya.</p>\r\n<p style="text-align: justify;">Kemudian mulailah menggosok gigi dengan menggunakan sikat gigi proxabrush atau sikat gigi yang berbentuk seperti pohon natal. Proxabrush didesain secara khusus guna membersihkan di antara dua kawat. Gerakkan sikat dari atas ke bawah dan dari bawah ke atas di antara kedua jalur kawat. Gerakkan beberapa kali sebelum berpindah ke area lain hingga gigi bersih. Di samping itu, jangan lupa juga untuk menggunakan obat kumur yang juga mengandung fluoride</p>\r\n<p style="text-align: justify;">Dalam penggunaan kawat gigi Anda, terkadang Anda menemukan beberapa masalah seperti karet mengendur, kawat rusak, atau jalur kawat yang berada di tempatnya yang menimbulkan ketidaknyamanan. Oleh karena itu, ketika Anda mengalaminya, Anda bisa melakukan pertolongan seperti di bawah ini.</p>\r\n<ul style="text-align: justify;">\r\n<li>Karet dan kawat lepas. Jika Anda mengalami hal ini, Anda dapat menggunakan sedikit lilin ortodontis untuk menempelkan kawat ke posisi semula untuk sementara waktu. Anda juga seharusnya menyimpan karet dan segeralah jadwalkan pemeriksaan dengan dokter gigi yang menangani.</li>\r\n<li>Kawat rusak. Gunakanlah ujung pensil yang memiliki penghapus untuk menggerakkan kawat yang mencuat ke posisi yang tidak mengganggu. Jangan mencoba memotong kawat karena adanya risiko kawat tertelan atau terhirup e paru-paru. Jika terjadi sariawan atau luka akibat kawat yang mencuat, kumur dengan air gara atau obat kumur antiseptik.</li>\r\n</ul>\r\n<p style="text-align: justify;">Nah Ladies, jangan biarkan gigi dan organ mulut Anda bermasalah karena Anda malas melakukan perawatan gigi dan mulut. Terlebih lagi gigi tersambung dengan saraf penting lainnya dan jika terjadi kerusakan pada gigi maka akan membawa masalah terhadap organ lainnya.</p>', 'inilah-tips-merawat-gigi-bagi-pengguna-behel.jpg', 'Y', 'merawat, gigi', 'tips merawat gigi'),
+(7, '', '2014-05-15', '12 Cara Menjaga Kesehatan Gigi dan Mulut Secara Alami', '<p style="text-align: justify;">Inilah tips&nbsp;<strong>12 cara menjaga kesehatan gigi dan mulut secara alami</strong>. Sakit gigi terjadi karena kurang memperhatikan kesehatan gigi dan mulut, sehingga bisa menimbulakan gigi berlubang, gusi berbengkak dan berdarah serta bau mulut. Apa lagi terkena yang namanya sakit gigi sungguh merasa menggangu dan tidak menyenangkan bahkan kesenanganpun terasa hilang.&nbsp;Nah ada baiknya Anda baca artikel dibawah ini cara menjaga kesehatan gigi dan mulut agar tidak terjadi hal-hal yang tidak menyenangkan. Berikut adalah 12 cara menjaga kesehatan gigi dan mulut, yuk simak:<br /><br /><strong>1. Makanan Sehat</strong><br /><br />Makan makanan yang sehat dan seimbang. Selain karbohidrat Anda juga memerlukan tambahan nutrisi seperti vitamin dan mineral agar gigi dan gusi tetap sehat. Terutama vitamin A, vitamin C dan vitamin D<br /><br /><strong>2. Air Putih</strong><br /><br />Air putih adalah komponen utama dari air liur yang berfungsi untuk menyimpan mineral-mineral yang diperlukan gigi, sekaligus membersihkan partikel makanan yang menempel di sela-sela gigi. Air juga mengandung fluoride yang dapat membuat gusi anda tetap lembab dan memperkuat enamel gigi.<br /><strong><br />3. Waktu Makan</strong><br /><br />Berikan jeda waktu antara makan dan ngemil. Ini membantu gigi agar tidak selalu terkena asam. Karena setelah makan, asam akan terbentuk antara 20 &ndash; 40 menit.<br /><br /><strong>4. Keju dan Susu</strong><br /><strong><br /></strong><br />Dua bahan makanan ini mengandung kalsium yang kaya dan baik bagi kesehatan gigi. Kandungan vitamin D dan fosfat juga akan memperkuat gigi agar tak gampang keropos dan dapat memperbaiki komponen gigi yang rusak dengan efektif.<br /><br /><strong>5. Hindari Gula</strong><br /><br />Minuman dengan gula tambahan seperti jus, teh dan kopi akan membentuk asam pada gigi. Batasi minum minuman dengan gula tambahan. Termasuk juga memakan permen lollipop.<br /><br /><strong>6. Kesehatan Gigi Anak</strong><br /><br />Jangan membiarkan bayi terlalu lama menggunakan botol susu. Kebiasaan ngedot ini akan membuat gigi terlalu lama terkena karbohidrat sehingga merusak gigi si kecil. Gantilah isi botol susunya dengan air putih, dan biasakan ia minum susu dari gelas.<br /><br /><strong>7. Sikat Gigi</strong><br /><br />Sikatlah gigi minimal dua kali sehari. Namun, bila memungkinkan sikat gigi setelah makan akan membantu menghilangkan plak yang dapat menciptakan asam.<br /><br /><strong>8. Konsumsi Teh</strong><br /><br />Teh mengandung polifenol yang dapat menekan pertumbuhan bakteri yang menyebabkan plak pada gigi. Selain itu, teh juga dapat mencegah gigi berlubang. Untuk hasil yang lebih baik, gunakan madu sebagai pengganti gula biasa. Namun jangan berlebihan karena teh juga bisa membuat gigi menjadi kuning.<br /><br /><strong>9. Benang Gigi</strong><br /><br />Untuk permukaan gigi yang lebih sehat, Anda bisa menggunakan benang gigi setiap sekali atau dua kali sehari.<br /><br /><strong>10. Berhentilah merokok</strong><br /><br />Tembakau akan meningkatkan resiko kerusakan gigi dan bahkan gangguan mulut lainnya.<br /><br /><strong>11. Kacang-kacangan</strong><br /><br />Kacang-kacangan terbukti mengandung kalsium dan vitamin D serta mineral yang tinggi. Ketiga komponen ini amat baik bagi gigi. Namun mengunyah kacang terlalu sering, apalagi kacang-kacangan yang keras, dapat merusak enamel gigi. Jadi tetaplah berhati-hati saat mengunyah kacang.<br /><br /><strong>12. Lakukan Pemeriksaan</strong><br /><br />Setiap 6 bulan sekali datanglah ke dokter gigi untuk pemeriksaan dan perawatan gigi Anda.<br /><br />Nah itulah sahabat sehat&nbsp;<span style="text-decoration: underline;">12 cara menjaga kesehatan gigi dan mulut secara alami</span>. Artikel diatas yang mungkin dapat membantu anda untuk menjaga kesehatan gigi dan mulut. Semoga cara diatas bisa membantu dan bermanfaat untuk Anda.</p>', 'gigi sehat.jpg', 'Y', 'kesehatan, gigi', 'menjaga kesehatan gigi dan mulut');
 
-/*Table structure for table `buku_tamu` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `buku_tamu`;
+--
+-- Table structure for table `buku_tamu`
+--
 
-CREATE TABLE `buku_tamu` (
+CREATE TABLE IF NOT EXISTS `buku_tamu` (
   `id` int(15) NOT NULL AUTO_INCREMENT,
   `nama` varchar(40) DEFAULT NULL,
   `email` varchar(55) DEFAULT NULL,
   `isi` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
-/*Data for the table `buku_tamu` */
+--
+-- Dumping data for table `buku_tamu`
+--
 
-insert  into `buku_tamu`(`id`,`nama`,`email`,`isi`) values 
-(1,'Fery','f3rypurn4m4@gmail.com','Terima kasih atas bantuannya'),
-(3,'Niken','niken@gmail.com','Terima Kasih');
+INSERT INTO `buku_tamu` (`id`, `nama`, `email`, `isi`) VALUES
+(1, 'Fery', 'f3rypurn4m4@gmail.com', 'Terima kasih atas bantuannya'),
+(3, 'Niken', 'niken@gmail.com', 'Terima Kasih');
 
-/*Table structure for table `gejala` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `gejala`;
+--
+-- Table structure for table `gejala`
+--
 
-CREATE TABLE `gejala` (
+CREATE TABLE IF NOT EXISTS `gejala` (
   `kd_gejala` char(4) NOT NULL DEFAULT '',
   `nm_gejala` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`kd_gejala`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/*Data for the table `gejala` */
+--
+-- Dumping data for table `gejala`
+--
 
-insert  into `gejala`(`kd_gejala`,`nm_gejala`) values 
-('G001','Penghasilan anda min. Rp20.000.000,00'),
-('G002','Penghasilan anda min. Rp10.000.000,00'),
-('G003','Penghasilan anda min. Rp5.000.000,00'),
-('G005','Anda senang jalan-jalan'),
-('G006','Anda senang menghabiskan waktu dengan keluarga'),
-('G007','Anda senang berkumpul dengan teman-teman'),
-('G008','Anda suka penawaran yang menarik di supermarket'),
-('G009','Anda suka promo di lapangan golf'),
-('G010','Anda tertarik dengan otomotif'),
-('G004','Penghasilan anda min. Rp3.000.000,00'),
-('G011','Anda tertarik dengan kegiatan luar ruangan'),
-('G012','Anda tertarik dengan promo nilai tukar kurs yang rendah'),
-('G013','Anda tertarik dengan promo diskon di berbagai tempat'),
-('G014','Anda tertarik dengan promo cicilan');
+INSERT INTO `gejala` (`kd_gejala`, `nm_gejala`) VALUES
+('G004', 'Bercak putih berlendir pada mulut'),
+('G003', 'Bercak kecoklatan mendatar pada bibir'),
+('G002', 'Benjolan putih pada bagian dalam bibir'),
+('G001', 'Bau mulut tak sedap'),
+('G005', 'Bercak putih pada lidah'),
+('G006', 'Bercak putih pada rongga mulut'),
+('G007', 'Bibir kemerahan'),
+('G008', 'Bibir pecah-pecah'),
+('G009', 'Bibir teras kering dan keras'),
+('G010', 'Bibir terasa panas seperti terbakar'),
+('G011', 'Bintik putih pada gigi'),
+('G012', 'Bintik-bintik merah bersisik pada daerah mulut'),
+('G013', 'Demam'),
+('G014', 'Dentin terlihat'),
+('G015', 'Disertai rasa gatal'),
+('G016', 'Disertai sakit kepala'),
+('G017', 'Gigi berlubang'),
+('G018', 'Gigi keluar darah'),
+('G019', 'Gigi nyeri saat terkena rangsangan (panas atau dingin)'),
+('G020', 'Nyeri pada TMJ (Sendi Temporo Mandibuler)'),
+('G021', 'Gusi bengkak'),
+('G022', 'Gusi licin dan mengkilap'),
+('G023', 'Gusi merah muda'),
+('G024', 'Gusi mudah berdarah'),
+('G025', 'Inferksi pada kelenjar lidah'),
+('G026', 'Kemerahan pada sudut-sudut mulut'),
+('G027', 'Lubang sangat besar pada gigi'),
+('G028', 'Luka mudah berdarah'),
+('G029', 'Luka terbuka berwarna biru keputihan'),
+('G030', 'Luka terbuka pada lidah'),
+('G031', 'Muncul benjolan kemerahan pada lubang gigi'),
+('G032', 'Nanah pada pangkal gusi'),
+('G033', 'Nyeri pada kelenjar ludah'),
+('G034', 'Nyeri pada otot pengunyah'),
+('G035', 'Nyeri saat berbaring'),
+('G036', 'Nyeri saat gigi tertekan makanan'),
+('G037', 'Nyeri saat mengunyah'),
+('G038', 'Pembengkakan kelenjar getah bening'),
+('G039', 'Pembengkakan pada kelenjar ludah'),
+('G040', 'Pembusukan pada gigi'),
+('G041', 'Pulpa mati rasa'),
+('G042', 'Pulpa terinfeksi'),
+('G043', 'Resesi Gusi'),
+('G044', 'Sakit berdenyut tanpa rangsangan'),
+('G045', 'Sudut mulut terasa nyeri'),
+('G046', 'Sudut-sudut mulut bersisik'),
+('G047', 'Terasa perih saat makan dan minum'),
+('G048', 'Terbentuk kantong antara gigi dan gusi'),
+('G049', 'Terdapat benjolan ungu dengan pinggiran bersiku pada daerah mulut'),
+('G050', 'Terdapat endapan plak'),
+('G051', 'Terdapat ulkus (luka) pada mukosa mulut'),
+('G052', 'Terjadi daerah kemerahan pada mulut'),
+('G053', 'Ulkus (luka) pada sudut mulut'),
+('G054', 'Vesikel (gelembung) pada mukosa mulut'),
+('G055', 'Terdapat karang gigi'),
+('G056', 'Perkembangan penyakit cepat (bulanan)'),
+('G057', 'Ruang pulpa terbuka'),
+('G058', 'Luka atau benjolan yang muncul berulang');
 
-/*Table structure for table `rule` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `rule`;
+--
+-- Table structure for table `rule`
+--
 
-CREATE TABLE `rule` (
+CREATE TABLE IF NOT EXISTS `rule` (
   `kd_solusi` char(4) NOT NULL,
   `kd_gejala` char(4) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/*Data for the table `rule` */
+--
+-- Dumping data for table `rule`
+--
 
-insert  into `rule`(`kd_solusi`,`kd_gejala`) values 
-('P009','G007'),
-('P008','G002'),
-('P008','G014'),
-('P008','G007'),
-('P008','G005'),
-('P007','G002'),
-('P007','G009'),
-('P007','G005'),
-('P006','G003'),
-('P006','G009'),
-('P006','G005'),
-('P005','G001'),
-('P004','G002'),
-('P004','G010'),
-('P004','G006'),
-('P004','G005'),
-('P003','G004'),
-('P003','G006'),
-('P002','G001'),
-('P002','G006'),
-('P002','G005'),
-('P001','G003'),
-('P001','G012'),
-('P001','G006'),
-('P001','G005'),
-('P009','G014'),
-('P009','G004'),
-('P010','G007'),
-('P010','G014'),
-('P010','G004'),
-('P011','G006'),
-('P011','G012'),
-('P011','G008'),
-('P011','G003'),
-('P012','G005'),
-('P012','G006'),
-('P012','G003'),
-('P003','G005'),
-('P001','G005'),
-('P001','G011'),
-('P002','G011'),
-('P003','G011'),
-('P004','G011'),
-('P008','G011'),
-('P009','G011'),
-('P010','G011'),
-('P012','G011'),
-('P011','G005'),
-('P002','G012'),
-('P003','G012'),
-('P012','G012');
+INSERT INTO `rule` (`kd_solusi`, `kd_gejala`) VALUES
+('P003', 'G008'),
+('P003', 'G007'),
+('P002', 'G001'),
+('P001', 'G037'),
+('P001', 'G032'),
+('P001', 'G050'),
+('P001', 'G055'),
+('P001', 'G048'),
+('P001', 'G043'),
+('P001', 'G038'),
+('P001', 'G024'),
+('P001', 'G023'),
+('P001', 'G022'),
+('P001', 'G021'),
+('P001', 'G013'),
+('P001', 'G001'),
+('P003', 'G009'),
+('P003', 'G026'),
+('P003', 'G045'),
+('P003', 'G046'),
+('P003', 'G053'),
+('P004', 'G003'),
+('P004', 'G007'),
+('P004', 'G008'),
+('P004', 'G009'),
+('P004', 'G010'),
+('P004', 'G013'),
+('P005', 'G021'),
+('P005', 'G022'),
+('P005', 'G023'),
+('P005', 'G024'),
+('P005', 'G050'),
+('P005', 'G055'),
+('P006', 'G013'),
+('P006', 'G021'),
+('P006', 'G024'),
+('P006', 'G038'),
+('P006', 'G047'),
+('P006', 'G051'),
+('P006', 'G052'),
+('P006', 'G054'),
+('P007', 'G001'),
+('P007', 'G024'),
+('P007', 'G050'),
+('P007', 'G055'),
+('P008', 'G001'),
+('P008', 'G005'),
+('P008', 'G006'),
+('P008', 'G047'),
+('P008', 'G051'),
+('P009', 'G002'),
+('P009', 'G003'),
+('P009', 'G004'),
+('P009', 'G008'),
+('P009', 'G028'),
+('P009', 'G030'),
+('P009', 'G052'),
+('P009', 'G056'),
+('P009', 'G058'),
+('P010', 'G014'),
+('P010', 'G017'),
+('P010', 'G019'),
+('P011', 'G014'),
+('P011', 'G017'),
+('P011', 'G019'),
+('P011', 'G042'),
+('P011', 'G044'),
+('P012', 'G011'),
+('P012', 'G017'),
+('P013', 'G016'),
+('P013', 'G020'),
+('P013', 'G034'),
+('P014', 'G012'),
+('P014', 'G015'),
+('P014', 'G029'),
+('P014', 'G049'),
+('P014', 'G058'),
+('P015', 'G025'),
+('P015', 'G033'),
+('P015', 'G039'),
+('P016', 'G017'),
+('P016', 'G027'),
+('P016', 'G040'),
+('P016', 'G041'),
+('P016', 'G057'),
+('P017', 'G001'),
+('P017', 'G021'),
+('P017', 'G022'),
+('P017', 'G023'),
+('P017', 'G024'),
+('P017', 'G043'),
+('P017', 'G048'),
+('P017', 'G050'),
+('P017', 'G055'),
+('P018', 'G017'),
+('P018', 'G018'),
+('P018', 'G019'),
+('P018', 'G027'),
+('P018', 'G035'),
+('P018', 'G042'),
+('P018', 'G044'),
+('P019', 'G018'),
+('P019', 'G027'),
+('P019', 'G031'),
+('P019', 'G035'),
+('P019', 'G036'),
+('P019', 'G037'),
+('P019', 'G042'),
+('P019', 'G057'),
+('P020', 'G007'),
+('P020', 'G013'),
+('P020', 'G015'),
+('P020', 'G028'),
+('P020', 'G030'),
+('P020', 'G047'),
+('P020', 'G051');
 
-/*Table structure for table `solusi` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `solusi`;
+--
+-- Table structure for table `solusi`
+--
 
-CREATE TABLE `solusi` (
+CREATE TABLE IF NOT EXISTS `solusi` (
   `kd_solusi` char(4) NOT NULL,
   `nm_solusi` varchar(300) NOT NULL,
-  `solusi` varchar(100) NOT NULL,
-  `bonus` text NOT NULL,
-  `manfaat` text NOT NULL,
-  `fiturlain` text NOT NULL,
-  `biayadanbunga` text NOT NULL,
-  `syaratpengajuan` text NOT NULL,
+  `solusi` text NOT NULL,
+  `definisi` text NOT NULL,
   PRIMARY KEY (`kd_solusi`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/*Data for the table `solusi` */
+--
+-- Dumping data for table `solusi`
+--
 
-insert  into `solusi`(`kd_solusi`,`nm_solusi`,`solusi`,`bonus`,`manfaat`,`fiturlain`,`biayadanbunga`,`syaratpengajuan`) values 
-('P001','Mandiri SKYZ','mandiriskyz.png','<p>Cashback senilai Rp200.000,00.</p>','<p>2x Fiestapoin.</br>\r\nKemudahan pembayaran tagihan melalui ATM semua bank, Mandiri Online, Cabang, SMS Banking, Direct debit, dan menu transfer bank lain.\r\n</p>','<p>Belanja tak perlu khawatir hilang atau rusak dengan perlindungan hingga Rp 50 juta dengan pembelian menggunakan Mandiri SKYZ baik diluar maupun di dalam negeri.</br>\r\nPerlindungan bebas premi hingga Rp 1 Milyar setiap pembelian tiket perjalanan apapun.\r\n</p>','<p>Rp300.000,00 </br>\r\n2%</p>','<p>Minimal 21 tahun</br>\r\nPenghasilan minimal Rp5.000.000,00.</p>'),
-('P002','Mandiri Signature','mandirisignature.png','<p>Cashback senilai Rp300.000,00.</p>','<p>3x Fiestapoin.</br>\r\nMendapat kenyamanan saat menunggu penerbangan dengan bebas akses Lounge & Airport Merchant.</br>\r\nTerbang gratis lebih cepat.\r\n</p>','<p>Layanan emergency medical evacuation yang sewaktu-waktu dibutuhkan di luar negeri dengan menghubungi Mandiri Visa Signature Call di 6221-5299-7765.</br>\r\nDapatkan kartu keanggotaan Priority Pass yang bisa mengakses Priority Pass lounge di lebih dari 100 negara dengan menghubungi Mandiri Visa Signature Call Center di 6221-5299-7765 atau Mandiri Call 14000.\r\n</p>','<p>Rp900.000,00</br>\r\n2%</p>\r\n','<p>Usia minimal 21 tahun.</br>\r\nPenghasilan minimal Rp20.000.000,00.</p>'),
-('P003','Mandiri Precious','mandiriprecious.gif','<p>Cashback senilai Rp750.000,00.</p>','<p>3x Fiestapoin untuk transaksi diluar negeri.</br>\r\nMendapat kenyaman saat menunggu penerbangan dengan bebas akses ke Airport Lounge & Merchant.\r\n</p>','<p>Perlindungan bebas premi hingga Rp1.000.000.000,00 setiap pembelian tiket perjalanan apapun dengan Mandiri Precious.</p>','<p>Rp500.000,00</br>\r\n2%</p>','<p>-</p>'),
-('P004','Mandiri Co Brand Pertamina','mandiricobrandpertamina.png','<p>Cashback senilai Rp200.000,00 setelah bertransaksi pertama kali\r\n</p>','<p> 2x Fiestapoin Transaksi di SPBU Pertamina. </br>\r\nNo Surcharge di SPBU. </br>\r\nPemegang kartu berhak atas perlindungan asuransi maksimal sebesar Rp 1 miliar dan mendapatkan fasilitas derek dan asistensi darurat kendaraan 24 jam. </p>\r\n','<p> Mendapatkan fasilitas lounge bandara jika penerbangan Anda ditunda. </br>\r\nBantuan 24 jam untuk keperluan darurat. Hubungi Mastercard Service Representative Global bebas pulsa di 001-803-1-887-0623. </br>\r\nKomplemen satu botol wine untuk makan malam. </br>\r\nMemberikan pengalaman tidak ternilai di berbagai aspek: olahraga, hiburan, music, travel, seni & budaya, kuliner, filantropi, dan shopping. </p>\r\n','<p>Rp400.000,00</br>\r\n2%</p>','<p> Minimal berusia 21 tahun. </br>\r\nPenghasilan minimal 5 juta </p>'),
-('P005','Mandiri Golf Signature','mandirigolfsignature.png','<p>-</p>','<p>Diskon Lapangan & Merchant Golf hingga 50%. 3x fiestapoin. Mandiri Golf Tournament Series. Layanan emergency medical evacuation yang sewaktu-waktu dibutuhkan di luar negeri dengan menghubungi Mandiri Visa Signature Call di 6221-5299-7765.</br>\r\nDapatkan akses ke lapangan golf terbaik dunia dengan layanan Visa Concierge melalui www.visasignatureconcierge.com atau telepon ke toll free number 001 803 441 242. Akses pemesanan fasilitas private jet dengan menghubungi Mandiri Travel Center di 6221-526 8480 (hanya bisa dihubungi pada saat jam kerja, dan pemesanan dilakukan 1 minggu sebelum keberangkatan). Pertanggungan asuransi bebas premi dengan maksimal pertanggungan sampai dengan Rp. 5 Miliar. Untuk syarat dan ketentuan lebih lengkap.</br>\r\nLayanan telepon khusus untuk pemegang kartu Mandiri Visa Signature di 6221-5299-7765 yang dapat dihubungi kapanpun 24 jam / 7 hari seminggu, termasuk hari libur.\r\n</p>','<p>Gratis menikmati fasilitas Airport Lounge di berbagai bandara di Indonesia.</br>\r\nLayanan emergency medical evacuation yang sewaktu-waktu dibutuhkan di luar negeri dengan menghubungi Mandiri Visa Signature Call di 6221-5299-7765.</br>\r\nDapatkan akses ke lapangan golf terbaik dunia dengan layanan Visa Concierge melalui www.visasignatureconcierge.com atau telepon ke toll free number 001 803 441 242.</br>\r\nAkses pemesanan fasilitas private jet dengan menghubungi Mandiri Travel Center di 6221-526 8480 (hanya bisa dihubungi pada saat jam kerja, dan pemesanan dilakukan 1 minggu sebelum keberangkatan).</br>\r\nPertanggungan asuransi bebas premi dengan maksimal pertanggungan sampai dengan Rp. 5 Miliar. Untuk syarat dan ketentuan lebih lengkap.</br> \r\nLayanan telepon khusus untuk pemegang kartu Mandiri Visa Signature di 6221-5299-7765 yang dapat dihubungi kapanpun 24 jam / 7 hari seminggu, termasuk hari libur.\r\n</p>','<p>Rp1.500.000,00</br>\r\n2%</p>','<p>Usia minimal 21 tahun.</br>\r\nPenghasilan minimal Rp20.000.000,00</p>'),
-('P006','Mandiri Golf Gold','mandirigolfgold.png','<p>-</p>','<p>Diskon Lapangan & Merchant Golf hingga 50%. Mandiri Golf Tournament Series.</br\r\nProgram Golf Travelling Special price dengan fasilitas cicilan dengan atau tanpa bunga.\r\n</p>','<p>Program Golf Travelling Special price dengan fasilitas cicilan dengan atau tanpa bunga.</p>','<p>Rp500.000,00</br>\r\n2%</p>','<p>Penghasilan minimal Rp5.000.000,00.</p>'),
-('P008','Mandiri Platinum','mandiriplatinum.png','<p>Cashback Rp300.000,00.\r\n</p>','<p>2x Fiestapoin.</br>\r\nCicilan ringan.</br>\r\nBayar tagihan Mandiri Kartu Kredit melalui ATM semua bank, Mandiri Online, Cabang, SMS Banking, Direct debit, dan menu transfer bank lain. \r\n</p>','<p>Kini Anda dapat membayar semua tagihan rutin dalam 1 kali pembayaran. Daftarkan tagihan rutin Anda seperti PLN, Telkom, Pascabayar Seluler, dan TV kabel.</br>\r\nBelanja tak perlu khawatir hilang atau rusak dengan perlindungan hingga Rp 100 juta (per kejadian) dan Rp 60 juta (per item) dengan pembelian menggunakan Mandiri Platinum baik di luar maupun di dalam negeri.</br>\r\nPerlindungan bebas premi hingga Rp 5 milyar setiap pembelian tiket perjalanan apapun dengan Mandiri Platinum.\r\n</p>','<p>Rp180.000,00</br>\r\n2%</p>','<p>Penghasilan minimal Rp10.000.000,00.</p>'),
-('P009','Everyday Card','everydaycard.png','<p>-</p>','<p>Nikmati kenyamanan dalam melakukan transaksi online dengan adanya fitur 3D secure yang memungkinkan Anda menerima PIN transaksi melalui SMS di website yang berlogo verified by VISA / Verified by MasterCard. </br>\r\nUbah transaksi Anda menjadi cicilan tetap dengan bunga ringan hingga 1% per bulannya. </br>\r\nDapatkan dana tunai dan kemudahan pembayaran melalui cicilan tetap hingga 12 bulan dengan bunga ringan. </p>\r\n','<p>-</p>','<p>Rp500.000,00</br>\r\n2%</p>','<p>Penghasilan minimal Rp3.000.000,00 </p>'),
-('P010','Mandiri Gold','mandirigold.png','<p>-</p>','<p>Bayar semua tagihan rutin dalam 1 kali pembayaran.</br>\r\nCairkan limit Mandiri Gold untuk berbagai keinginan kamu yang tidak terbatas.</br>\r\nBeli apapun, dimanapun, gak perlu pusing bayar tagihan. Ubah transaksimu menjadi cicilan.\r\n\r\n</p>','<p>Dapatkan informasi tagihan yang lebih praktis dan mudah melalui e-mail. </p>','<p>Rp300.000,00</br>\r\n2%</p>','<p>Penghasilan minimal Rp3.000.000,00 </p>'),
-('P011','Mandiri Co Brand Hypermart','mandiricobrandhypermart.png','<p>Cashback Rp200.000,00.</p>','<p>Cicilan 0% sampai 3 bulan untuk seluruh produk dan 12 bulan khusus produk elektronik.</br>\r\nProgram GWP Bonus produk setiap hari untuk Visa Contacles dengan cara Tap.\r\n</p>','<p>-</p>','<p>Rp200.000,00</br>\r\n2%</p>','<p>Usia minimal 21 tahun.</br>\r\nPenghasilan minimal Rp5.000.00,00.</p>'),
-('P007','Mandiri Golf Platinum','mandirigolfplatinum.png','<p>-</p>','<p>Diskon Lapangan & Merchant Golf hingga 50%.</br>\r\n2x fiestapoin.</br>\r\nMandiri Golf Tournament Series.\r\n</p>','<p>Program Golf Travelling Special price dengan fasilitas cicilan dengan atau tanpa bunga.</br>\r\nUntuk perlindungan barang yang dibeli baik di dalam maupun di luar negeri.</br>\r\nPemegang kartu akan mendapat asuransi perjalanan bebas premi dengan nilai perlindungan hingga Rp5 Miliar untuk setiap pembelian tiket perjalanan menggunakan Mandiri Golf Platinum.</br>\r\nPemegang kartu untuk melindungi dari keterlambatan pesawat, ketidaknyamanan missed connection ataupun kehilangan bagasi.</br>\r\nLayanan international concierge dari Visa yang dapat diakses melalui www.visasignatureconcierge.com atau melalui telepon ke toll free 001 803 441 568 (bahasa Inggris) dan 001 803 441 242 (bahasa melayu).\r\n</p>','<p>Rp600.000,00</br>\r\n2%</p>','<p>Usia minimal 21 tahun.</br>\r\nPenghasilan minimal Rp10.000.000,00.</p>'),
-('P012','Mandiri Traveloka','mandiritraveloka.png','<p>-</p>','<p>Dapatkan 2x Traveloka Poin setiap pembelian Flight dan Hotel. </br>\r\ndiskon 10% setiap hari di Traveloka Xperience & Asuransi Mobil. </br>\r\nDapatkan 1 Traveloka Poin setiap transaksi kelipatan Rp8.000 di semua merchant baik online maupun offline. </br>\r\nWe got you covered! Pertanggungan asuransi bebas premi dengan maksimal pertanggungan sampai dengan Rp 1 Miliar. </p>\r\n','<p> Berlaku untuk nilai transaksi di bawah Rp 1 juta, sedangkan pembelanjaan dengan nilai transaksi ? Rp 1 juta tetap diperlukan otorisasi melalui PIN atau tanda tangan. </br>\r\nGratis 1 tahun tanpa syarat apapun. </p>\r\n','<p>Rp500.000,00</br>\r\n2%</p>','<p> Penghasilan minimal 5 juta </p>');
+INSERT INTO `solusi` (`kd_solusi`, `nm_solusi`, `solusi`, `definisi`) VALUES
+('P001', 'Abses Periodontal', '<p>Melakukan Scalling, root planing, curattage atau bedah flap yang disesuaikan dengan tingkat keparahannya</p>', '<p>Radang yang terlokalisasi dimana salah satu manifestasinya dalam bentuk nanah pada jaringan pendukung gigi</p>'),
+('P002', 'Bau mulut', '<p>Menghilangkan faktor etiologi bisa juga menggunakan mouthwash</p>', '<p>Bau tak sedap pada rongga mulut</p>'),
+('P003', 'Cheilitis', '<p>Memberikan pelembab pada bibir, menambah asupan vitamin, memberikan obat antibiotik/minosep, meningkatkan asupan air</p>', '<p>Peradangan yang terjadi pada bibir, umumnya ada pada sudut-sudut bibir</p>'),
+('P004', 'Eritema Multiformis', '<p>pemberian obat-obat immunomodulasi , kortikosteroid sistemis dosis rendah dan atau azatropin Kumur-kumur paliatif topikal</p>', '<p>suatu penyakit kulit dan membran mulkosa yang terrbatas. Umumnya terjadi pada pria dewasa muda tapi bisa juga pada anak-anak. umumnya penyebab tidak diketahui, mungkin berupa reaksi terhadap mikroorganisme atau obat</p>'),
+('P005', 'Gingivitis', '<p>Melakukan scalling dan meningkatkan DHE</p>', '<p>Radang gigi</p>'),
+('P006', 'Herpes Simpleks (Primary herpetic Gingivostomatitis)', '<p>Pemberian antivirus, Perbaikan nutrisi tubuh, dan pemberian obat anti nyeri, istrahat yang cukup.</p>', '<p>Gelembung yang merupakan infeksi virus HSV (Herpes Simpleks Virus) pada bagian sudut.</p>'),
+('P007', 'Kalkulus', '<p>Melakukan scalling, root planing, curattage atau bedah flap yang disesuaikan dengan tingkat keparahannya.</p>', '<p>Karang Gigi</p>'),
+('P008', 'Kandidiasis', '<p>Pembersihan jamur pada daerah yang terserang, pemberian obat anti jamur, dan peningkatan DHE.</p>', '<p>Infeksi jamur (Candida Albicans) pada rongga mulut yang disebabkan ketidakseimbangan flora normal pada mulut.</p>'),
+('P009', 'Kanker', '<p>Pemberian obat anti kanker atau kemoterapi, atau radioterapi, peningkatan DHE.</p>', '<p>Pertumbuhan sel yang tidak terkendali dan bersifat ganas.</p>'),
+('P010', 'Karies Media', '<p>Restorasi</p>', '<p>Gigi berlubang yang baru mengenai lapisan dentin.</p>'),
+('P011', 'karies Profunda', '<p>Restorasi, pembersihan dan sterilisasi saluran akar.</p>', '<p>Gigi berlubang yang sudah mengenai jaringan pulpa.</p>'),
+('P012', 'Karies Superfisial', '<p>Restorasi</p>', '<p>Gigi berlubang yang hanya sampai la[isan terluar atau email.</p>'),
+('P013', 'Kelainan Sendi Temporomandibuler', '<p>Perbaikan Oklusi Gigi, tindakan pembedahan jika parah.</p>', '<p>Kelainan pada otot atau sendi disekitar temporo mandibular joint.</p>'),
+('P014', 'Linken Planus', '<p>Pemberian krim atau salep betametason valerat 0,1%, dirawat dengan steroid dan immunosupresan topikal atau sistemik.</p>', '<p>Penyakit gatal yang kambuhan, dimulai sebagai ruam dari benjolan kecil yang menyebar, yang kemudian menyatu membentuk plak yang bersisik dan kasar.</p>'),
+('P015', 'Masalah Kelenjar ludah', '<p>Pemberian antibiotik atau antivirus sesuai faktor penyebabnya, pembedahan.</p>', '<p>Pembengkakan pada saluran kelenjar ludah.</p>'),
+('P016', 'Nekrosis Pulpa', '<p>Perawatan saluran akar (PSA / Endodontic treatment) atau pencabutan gigi.</p>', '<p>Kematian jaringan pulpa akibat peradangan pada pulpa yang berlangsung kronis.</p>'),
+('P017', 'Periodontitis', '<p>Melakukan scalling, root planing, curattage atau bedah flap yang disesuaikan dengan tingkat keparahannya, serta pemberian antibiotik jika sudah parah.</p>', '<p>Peradangan gusi yang sudah menyebar ke daerah penyangga gigi.</p>'),
+('P018', 'Pulpitis Akut', '<p>Dipulpotomi (pemotongan pulpa), restorasi, pemberishan dan sterilisasi saluran kar serta pemberian obat pereda nyeri.</p>', '<p>Radang pada jaringan pulpa yang tidak parah, jika penyebab peradangan telah dihilangkan maka pulpa akan pulih seperti semula.</p>'),
+('P019', 'Pulpitis Kronis', '<p>Dipulpotomi (pemotongan pulpa), Restorasi dan pemberian obat pereda nyeri, devitalisasi (syaraf dimatikan) dan dilakukan perawatan saluran akar (PSA / endodontic treatment).</p>', '<p>Peradangan parah pada pulpa yang tidak akan pulih kembali sekalipun penyebabnya dihilangkan, labat laun akan menyebabkan kematian jaringan.</p>'),
+('P020', 'Sariawan', '<p>Penigkatan asupan nutrisi, vitamin dan air, pemberian minosep, meminimalisir faktor pencetus (predisposisi).</p>', '<p>Peradangan pada jaringan mukosa mulut</p>'),
+('P021', 'Mohon Maaf, System tidak dapat mendiagnosis penyakit anda. Silahkan kirim pesan atau gejala anda.', '<p>-</p>', '<p>-</p>');
 
-/*Table structure for table `statistik` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `statistik`;
+--
+-- Table structure for table `statistik`
+--
 
-CREATE TABLE `statistik` (
+CREATE TABLE IF NOT EXISTS `statistik` (
   `ip` varchar(20) NOT NULL DEFAULT '',
   `tanggal` date NOT NULL,
   `hits` int(10) NOT NULL DEFAULT '1',
   `online` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/*Data for the table `statistik` */
+--
+-- Dumping data for table `statistik`
+--
 
-insert  into `statistik`(`ip`,`tanggal`,`hits`,`online`) values 
-('127.0.0.2','2009-09-11',1,'1252681630'),
-('::1','2014-12-09',10,'1418156879'),
-('::1','2014-07-08',1,'1404811988'),
-('::1','2014-07-04',2,'1404441411'),
-('::1','2014-06-17',4,'1402973989'),
-('::1','2014-06-13',7,'1402651504'),
-('127.0.0.1','2010-04-16',11,'1271389426'),
-('::1','2014-06-10',90,'1402399216');
+INSERT INTO `statistik` (`ip`, `tanggal`, `hits`, `online`) VALUES
+('127.0.0.2', '2009-09-11', 1, '1252681630'),
+('::1', '2014-12-09', 10, '1418156879'),
+('::1', '2014-07-08', 1, '1404811988'),
+('::1', '2014-07-04', 2, '1404441411'),
+('::1', '2014-06-17', 4, '1402973989'),
+('::1', '2014-06-13', 7, '1402651504'),
+('127.0.0.1', '2010-04-16', 11, '1271389426'),
+('::1', '2014-06-10', 90, '1402399216');
 
-/*Table structure for table `tmp_analisa` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `tmp_analisa`;
+--
+-- Table structure for table `tmp_analisa`
+--
 
-CREATE TABLE `tmp_analisa` (
+CREATE TABLE IF NOT EXISTS `tmp_analisa` (
   `noip` varchar(60) NOT NULL DEFAULT '',
   `kd_solusi` char(4) NOT NULL DEFAULT '',
   `kd_gejala` char(4) NOT NULL DEFAULT '',
   `status` enum('Y','N') NOT NULL DEFAULT 'N'
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/*Data for the table `tmp_analisa` */
+--
+-- Dumping data for table `tmp_analisa`
+--
 
-insert  into `tmp_analisa`(`noip`,`kd_solusi`,`kd_gejala`,`status`) values 
-('::1','P002','G012','N'),
-('::1','P002','G011','N'),
-('::1','P002','G006','N'),
-('::1','P002','G005','N'),
-('::1','P002','G001','N');
+INSERT INTO `tmp_analisa` (`noip`, `kd_solusi`, `kd_gejala`, `status`) VALUES
+('::1', 'P008', 'G047', 'N'),
+('::1', 'P008', 'G051', 'N'),
+('::1', 'P008', 'G006', 'N'),
+('::1', 'P008', 'G005', 'N'),
+('::1', 'P008', 'G001', 'N');
 
-/*Table structure for table `tmp_gejala` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `tmp_gejala`;
+--
+-- Table structure for table `tmp_gejala`
+--
 
-CREATE TABLE `tmp_gejala` (
+CREATE TABLE IF NOT EXISTS `tmp_gejala` (
   `kd_gejala` char(4) NOT NULL,
   `noip` varchar(60) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/*Data for the table `tmp_gejala` */
+--
+-- Dumping data for table `tmp_gejala`
+--
 
-insert  into `tmp_gejala`(`kd_gejala`,`noip`) values 
-('G005','::1'),
-('G001','::1');
+INSERT INTO `tmp_gejala` (`kd_gejala`, `noip`) VALUES
+('G005', '::1'),
+('G001', '::1');
 
-/*Table structure for table `tmp_pasien` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `tmp_pasien`;
+--
+-- Table structure for table `tmp_pasien`
+--
 
-CREATE TABLE `tmp_pasien` (
+CREATE TABLE IF NOT EXISTS `tmp_pasien` (
   `id` int(4) unsigned zerofill NOT NULL AUTO_INCREMENT,
   `nama` varchar(60) NOT NULL,
   `kelamin` enum('P','W') NOT NULL,
@@ -326,28 +456,33 @@ CREATE TABLE `tmp_pasien` (
   `noip` varchar(60) NOT NULL,
   `tanggal` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=190 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=151 ;
 
-/*Data for the table `tmp_pasien` */
+--
+-- Dumping data for table `tmp_pasien`
+--
 
-insert  into `tmp_pasien`(`id`,`nama`,`kelamin`,`alamat`,`pekerjaan`,`noip`,`tanggal`) values 
-(0189,'akbar','P','kepo','kepo','::1','2021-01-13 14:15:43');
+INSERT INTO `tmp_pasien` (`id`, `nama`, `kelamin`, `alamat`, `pekerjaan`, `noip`, `tanggal`) VALUES
+(0150, 'aaaa', 'P', 'Jambi', 'Swasta', '::1', '2014-12-10 03:26:18');
 
-/*Table structure for table `tmp_solusi` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `tmp_solusi`;
+--
+-- Table structure for table `tmp_solusi`
+--
 
-CREATE TABLE `tmp_solusi` (
+CREATE TABLE IF NOT EXISTS `tmp_solusi` (
   `kd_solusi` char(4) NOT NULL,
   `noip` varchar(60) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
-/*Data for the table `tmp_solusi` */
+--
+-- Dumping data for table `tmp_solusi`
+--
 
-insert  into `tmp_solusi`(`kd_solusi`,`noip`) values 
-('P002','::1');
+INSERT INTO `tmp_solusi` (`kd_solusi`, `noip`) VALUES
+('P008', '::1');
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
