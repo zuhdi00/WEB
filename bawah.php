@@ -1,7 +1,7 @@
 	  </div>
 	  <footer class="navbar-fixed-bottom">
 	  <hr>
-		<p  style="padding-left:70px;"><center>&copy; Sistem Pakar Pemesanan Azana Sapta Nawa 2021 </center></p>
+		<p  style="padding-left:70px;">&copy; Sistem Pakar Kartu Kredit Mandiri</p>
 	  </footer>
 	</div> <!-- /container -->
 
